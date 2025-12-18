@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Header.module.css'
+import {Link} from 'react-router-dom'
 
 import LowerHeader from './LowerHeader'
 import { FaSearch } from "react-icons/fa";
@@ -13,9 +14,9 @@ function Header() {
             <div className={classes.header_container}>
                 <div className={classes.logo_container}>
                     {/* logo */}
-                    <a href="/">
+                    <Link to="/">
                         <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon logo" />
-                    </a>
+                    </Link>
                     {/* delivery */}
                     <div className={classes.delivery}>
                         <span>
@@ -38,30 +39,30 @@ function Header() {
                     <FaSearch size={25} />
                 </div>
                 <div className={classes.order_container}>
-                    <a href="" className={classes.language}>
+                    <Link to="" className={classes.language}>
                         <img src="https://image.shutterstock.com/image-vector/american-flag-usa-design-united-260nw-2477519645.jpg" alt="" />
                         <select>
                             <option value="">EN</option>
                         </select>
-                    </a>
+                    </Link>
                     {/* three components */}
-                    <a href="">
+                    <Link to="/auth">
                         <div>
                             <p>Hello, Sign in</p>
                             <span>Account & Lists</span>
                         </div>
-                    </a>
+                    </Link>
                     {/* Orders */}
-                    <a href="">
+                    <Link to="/orders">
                         <p>Returns</p>
                         <span>& Orders</span>
-                    </a>
+                    </Link>
                     {/* cart */}
-                    <a to={"/cart"} className={classes.cart}>
+                    <Link to={"/cart"} className={classes.cart}>
                         {/* icon */}
                         <BiCart size={35} />
                         <span>0</span>
-                    </a>
+                    </Link>
                 </div>  
             </div>
         </section>

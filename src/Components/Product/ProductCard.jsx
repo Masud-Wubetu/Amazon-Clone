@@ -1,7 +1,7 @@
 import React from 'react'
 import Rating from '@mui/material/Rating'
 import CurrencyFormat from '../CurrencyFormat/CurrencyFormat'
-import classes from './product.module.css'
+import classes from './Product.module.css'
 
 function ProductCard({product}) {
     const {image, title, id, rating, price} = product
