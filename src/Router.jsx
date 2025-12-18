@@ -5,7 +5,7 @@ import SignUp from './Pages/Auth/SignUp'
 import Payment from './Pages/Payment/Payment'
 import Orders from './Pages/Orders/Orders'
 import Cart from './Pages/Cart/Cart'
-import Category from './Components/Category/Category'
+import Results from './Pages/Results/Results'
 
 function Routering() {
   return (

@@ -7,12 +7,12 @@ export const categoryInfos = [
   },
   {
     title: "Discover fashion trends",
-    name: "womens-clothing",
+    name: "women's clothing",
     imgLink: "/images/women.jpg"
   },
   {
     title: "Men's Clothing",
-    name: "mens-clothing",
+    name: "men's clothing",
     imgLink: "/images/men.jpg"
   },
   {
