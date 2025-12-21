@@ -13,8 +13,8 @@ function Cart() {
   }, 0)
   return (
     <LayOut>
-      <section>
-        <div>
+      <section className={classes.container}>
+        <div className={classes.cart_container}>
           <h2>Hello</h2>
           <h3>Your shopping basket</h3>
           <hr/>
@@ -34,7 +34,7 @@ function Cart() {
         </div>
         {
           basket?.length !== 0 && (
-            <div>
+            <div className={classes.subtotal}>
               <div>
                 <p>Subtotal ({basket?.length} items)</p>
                 <CurrencyFormat amount={total}/>
