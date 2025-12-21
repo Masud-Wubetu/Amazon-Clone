@@ -22,6 +22,10 @@
     width: 100px !important
 }
 
+.container div:not(.subtotal){
+    height: auto !important
+}
+
 .subtotal {
     padding: 20px;
     min-width: 300px;
