@@ -8,6 +8,9 @@ import {Link} from 'react-router-dom'
 
 function Cart() {
   const [{basket, user}, dispatch] = useContext(DataContext);
+  const total = basket.reduce((amount, item) => {
+    return amount + item.price
+  }, 0)
   return (
     <LayOut>
       <section>
@@ -34,7 +37,7 @@ function Cart() {
             <div>
               <div>
                 <p>Subtotal ({basket?.length} items)</p>
-                <CurrencyFormat amount="total"/>
+                <CurrencyFormat amount={total}/>
               </div>
               <span>
                 <input type="checkbox"/>
