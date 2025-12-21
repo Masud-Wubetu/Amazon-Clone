@@ -20,6 +20,7 @@ function Cart() {
                   key={item.id}
                   product={item}
                   renderDesc={true}
+                  renderAdd={false}
                   flex={true}
                 />
               })
