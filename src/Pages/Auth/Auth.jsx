@@ -26,7 +26,7 @@ function Auth() {
           })
         })
         .catch((err) => {
-          setError(err)
+          setError(err.message)
         })
     } else {
       createUserWithEmailAndPassword(auth, email, password)
@@ -37,7 +37,7 @@ function Auth() {
           })
         })
         .catch((err) => {
-          console.log(err)
+          setError(err.message)
         })
     }
   }
@@ -89,7 +89,14 @@ function Auth() {
           onClick={authHandler} 
           type="submit"
           name="signup"
-          className={classes.login_registerButton}>Create Your Amazon Account</button>
+          className={classes.login_registerButton}>Create Your Amazon Account
+          </button>
+          {
+            error && (<small
+               style={{paddingTop: "5px", color: "red"}}>{error}
+             </small>
+          )}
+
         </div>
      </section>
   )
