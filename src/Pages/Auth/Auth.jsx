@@ -11,19 +11,30 @@ function Auth() {
            alt="" />
         </Link>
         {/* form */}
-        <div>
+        <div className={classes.login_container}>
           <h1>Sign-in</h1>
-          <div>
-            <label htmlFor="email">E-mail</label>
-            <input type="email" id="email" />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" />
-          </div>
-          <button>
-            Sign In
-          </button>
+          <form action="">
+            <div>
+              <label htmlFor="email">E-mail</label>
+              <input type="email" id="email" />
+            </div>
+            <div>
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password" />
+            </div>
+            <button className={classes.login_signInButton}>
+              Sign In
+            </button>
+          </form>
+          {/* agreement */}
+          <p>By signing in you agree to the AMAZON FAKE CLONE
+             Conditions of use & sale. please see our privacy
+             Notice, our Cookies notice and our Interest-based
+             Ads Notice
+          </p>
+
+          {/* create account btn */}
+          <button className={classes.login_registerButton}>Create Your Amazon Account</button>
         </div>
      </section>
   )
