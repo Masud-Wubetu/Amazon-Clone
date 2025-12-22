@@ -9,7 +9,7 @@ import { BiCart } from "react-icons/bi";
 import { DataContext } from '../DataProvider/DataProvider'
 
 function Header() {
-    const [{basket}, dispatch] = useContext(DataContext);
+    const [{user, basket}, dispatch] = useContext(DataContext);
     const totalItem = basket?.reduce((amount, item) => {
         return amount + item.amount
     }, 0)
@@ -53,7 +53,12 @@ function Header() {
                     {/* three components */}
                     <Link to="/auth">
                         <div>
-                            <p>Hello, Sign in</p>
+                            {
+                                user ? (<p>Hello {user?.email?.split("@")[0]}</p>) : 
+                                ( 
+                                    <p>Hello, Sign in</p>
+                                )
+                            }
                             <span>Account & Lists</span>
                         </div>
                     </Link>
