@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {DataContext} from '../../Components/DataProvider/DataProvider'
 import classes from './SignUp.module.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {auth} from '../../Utility/firebase'
 import {Type} from '../../Utility/action.type'
 import {ClipLoader} from 'react-spinners'
@@ -15,6 +15,7 @@ function Auth() {
     signIn: false,
     signUp: false
   })
+  const navigate = useNavigate();
 
   const [{user}, dispatch] = useContext(DataContext);
 
@@ -31,6 +32,7 @@ function Auth() {
             user: userInfo.user
           })
           setLoading({...loading, signIn: false});
+          navigate("/");
         })
         .catch((err) => {
           setError(err.message)
@@ -45,6 +47,7 @@ function Auth() {
             user: userInfo.user
           })
           setLoading({...loading, signUp: false});
+          navigate("/");
         })
         .catch((err) => {
           setError(err.message)
