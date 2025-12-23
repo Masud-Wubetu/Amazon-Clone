@@ -7,6 +7,7 @@ import { FaSearch } from "react-icons/fa";
 import { SlLocationPin } from "react-icons/sl";
 import { BiCart } from "react-icons/bi";
 import { DataContext } from '../DataProvider/DataProvider'
+import {auth} from '../../Utility/firebase'
 
 function Header() {
     const [{user, basket}, dispatch] = useContext(DataContext);
@@ -51,15 +52,20 @@ function Header() {
                         </select>
                     </Link>
                     {/* three components */}
-                    <Link to="/auth">
+                    <Link to={!user && "/auth"}>
                         <div>
                             {
-                                user ? (<p>Hello {user?.email?.split("@")[0]}</p>) : 
-                                ( 
-                                    <p>Hello, Sign in</p>
+                                user ? (
+                                <>
+                                    <p>Hello {user?.email?.split("@")[0]}</p>
+                                    <span onClick={() => auth.signOut()}>Sign Out</span>
+                                </>) : ( 
+                                <>
+                                    <p>Hello, Sign In</p>
+                                    <span>Account & Lists</span>
+                                </>
                                 )
                             }
-                            <span>Account & Lists</span>
                         </div>
                     </Link>
                     {/* Orders */}
