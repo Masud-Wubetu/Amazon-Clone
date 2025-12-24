@@ -14,7 +14,7 @@ function Cart() {
   const [{basket, user}, dispatch] = useContext(DataContext);
   const total = basket.reduce((amount, item) => {
     return amount + item.price * item.amount
-  }, 0)
+  }, 0);
 
   const increment = (item) => {
     dispatch({

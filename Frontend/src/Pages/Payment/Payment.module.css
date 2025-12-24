@@ -18,3 +18,40 @@
 .flex h3 {
     min-width: 300px
 }
+
+.flex img {
+    width: 80px !important
+}
+
+.flex div {
+    height: auto !important
+}
+
+.payment_card_container {
+    max-width: 350px;
+    width: 100%
+}
+
+.payment_details button {
+    margin-top: 15px;
+    width: 100%;
+    border: none;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer
+}
+
+.payment_details button:hover {
+    background-color: var(--primary-shade);
+}
+
+.payment_price {
+    padding: 20px;
+}
+
+.payment_price > div {
+    display: flex;
+    font-size: 16px;
+    gap: 10px
+}
