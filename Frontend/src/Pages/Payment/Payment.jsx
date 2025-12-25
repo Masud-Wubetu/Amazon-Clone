@@ -5,6 +5,7 @@ import { DataContext } from '../../Components/DataProvider/DataProvider'
 import ProductCard from '../../Components/Product/ProductCard'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from '../../Components/CurrencyFormat/CurrencyFormat'
+import { axiosInstance } from '../../Api/axios'
 
 
 
@@ -26,6 +27,22 @@ function Payment() {
 
   const handleChange = (e) => {
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("")
+  }
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response =  await axiosInstance({
+        method: "POST",
+        url: `/payment/create?total=${total}`
+      });
+
+      console.log(response.data);
+    }
+    catch(error) {
+
+    }
   }
   
   return (
@@ -61,18 +78,18 @@ function Payment() {
           <h3>Payment methods</h3>
           <div className={classes.payment_card_container}>
             <div className={classes.payment_details}>
-              <form action="">
+              <form onSubmit={handlePayment}>
                 {cardError && <small style={{color: "red "}}>{cardError}</small>}
                 <CardElement onChange={handleChange}/>
-              </form>
-              <div className={classes.payment_price}>
-                <div>
-                  <span style={{display: "flex", gap: "10px"}}>
-                    <p>Total Order |</p> <CurrencyFormat amount={total}/>
-                  </span>
+                <div className={classes.payment_price}>
+                  <div>
+                    <span style={{display: "flex", gap: "10px"}}>
+                      <p>Total Order |</p> <CurrencyFormat amount={total}/>
+                    </span>
+                  </div>
+                  <button type="submit">Pay Now</button>
                 </div>
-                <button>Pay Now</button>
-              </div>
+              </form>
             </div>
           </div>
         </div>

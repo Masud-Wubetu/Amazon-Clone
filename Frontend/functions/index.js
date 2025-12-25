@@ -1,7 +1,8 @@
+
+
 const {setGlobalOptions} = require("firebase-functions");
 const {onRequest} = require("firebase-functions/https");
-const logger = require("firebase-functions/logger");
-const express = require("express");
+const logger = require("firebase-functions/logger");const express = require("express");
 const cors = require("cors");
 const dotenv =  require("dotenv");
 dotenv.config();
@@ -19,7 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/payment/create", async (req, res) => {
-    const total = req.query.total
+    const total = Math.round(Number(req.query.total) * 100); // convert dollars to cents
+
     if(total > 0) {
        const paymentIntent = await stripe.paymentIntents.create({
             amount: total,
@@ -37,7 +39,10 @@ app.post("/payment/create", async (req, res) => {
     }
 });
 
-exports.api = onRequest(app);
+
+exports.api = onRequest(app)
+
 
 
 //setGlobalOptions({ maxInstances: 10 });
+
