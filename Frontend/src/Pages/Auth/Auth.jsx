@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import {DataContext} from '../../Components/DataProvider/DataProvider'
-import classes from './SignUp.module.css'
+import classes from './SIgnUp.module.css'
 import {Link, useNavigate, useLocation} from 'react-router-dom'
 import {auth} from '../../Utility/firebase'
 import {Type} from '../../Utility/action.type'
